@@ -18,22 +18,22 @@ Last,Close,Total Trade Quantity,Turnover <br>
 The closing price is used as the target variable for predictions. <br>
 
 # Techniques Used
-# Moving Average
+Moving Average
 The moving average technique predicts the closing price for each day based on the average of a set of previously observed values. This section demonstrates how to implement moving averages in Python.
 
-# Linear Regression
+<h3>Linear Regression</h3>
 Linear regression analyzes the relationship between date features and closing prices. It involves feature engineering to extract relevant date components and uses them to build the model.
 
-# k-Nearest Neighbours
+<h3>k-Nearest Neighbours</h3>
 kNN predicts the closing prices by finding the average of the k closest historical points. This section provides a walkthrough of the implementation and evaluation of the kNN model.
 
-# Auto ARIMA
+<h3>Auto ARIMA</h3>
 ARIMA is a powerful statistical method for time series forecasting. This section utilizes auto ARIMA to automatically select the best parameters for the ARIMA model to forecast stock prices.
 
-# Prophet
+<h3>Prophet</h3>
 Prophet is a time series forecasting tool developed by Facebook, which simplifies the forecasting process without extensive data preprocessing. This section outlines how to implement the Prophet model on stock data.
 
-# Long Short Term Memory (LSTM)
+<h3>Long Short Term Memory (LSTM)</h3>
 LSTMs are advanced recurrent neural networks suitable for sequence prediction tasks. This section describes how to implement LSTM to predict stock prices and evaluates its performance.
 
 # Conclusion
