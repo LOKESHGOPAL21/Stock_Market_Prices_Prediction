@@ -4,18 +4,18 @@
 Predicting stock market performance is a challenging task due to the volatile nature of share prices influenced by various factors, including both rational and irrational behavior. This project demonstrates how machine learning and deep learning techniques can be applied to historical stock price data to forecast future prices.
 
 # Models Implemented
-Moving Average
-Linear Regression
-k-Nearest Neighbours
-Auto ARIMA
-Prophet
-Long Short Term Memory (LSTM)
+Moving Average <br>
+Linear Regression <br>
+k-Nearest Neighbours <br>
+Auto ARIMA <br>
+Prophet <br>
+Long Short Term Memory (LSTM) <br>
 
 # Dataset
-The dataset includes the following columns:
-Date,Open,High,Low
-Last,Close,Total Trade Quantity,Turnover
-The closing price is used as the target variable for predictions. 
+The dataset includes the following columns: <br>
+Date,Open,High,Low <br>
+Last,Close,Total Trade Quantity,Turnover <br> 
+The closing price is used as the target variable for predictions. <br>
 
 # Techniques Used
 # Moving Average
