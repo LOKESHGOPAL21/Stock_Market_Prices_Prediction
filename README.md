@@ -1,40 +1,138 @@
-# Stock-Market-Prices-Prediction-Using-Machine-Learning-and-Deep-Learning
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>README - Model Development</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>README - Model Development</h1>
+    
+    <h2>1. Introduction</h2>
+    <p>This project focuses on developing and comparing different models for forecasting/predicting data trends. The models used are:</p>
+    <ul>
+        <li>ARIMA (AutoRegressive Integrated Moving Average)</li>
+        <li>Linear Regression</li>
+        <li>Polynomial Regression (Degree 3)</li>
+        <li>LSTM (Long Short-Term Memory)</li>
+    </ul>
+    
+    <h2>2. Data Collection</h2>
+    <p>The dataset used for training and testing the models was collected from Yahoo Finance. Steps involved:</p>
+    <ul>
+        <li>Used the <code>yfinance</code> Python library to fetch historical stock data.</li>
+        <li>Selected relevant features such as Open, Close, High, Low, and Volume.</li>
+        <li>Performed preprocessing, including handling missing values and feature scaling.</li>
+        <li>Split the dataset into training and testing sets for model evaluation.</li>
+    </ul>
+    <pre>
+    import yfinance as yf
+    data = yf.download('AAPL', start='2020-01-01', end='2024-01-01')
+    data = data[['Open', 'High', 'Low', 'Close', 'Volume']]
+    data.dropna(inplace=True)
+    </pre>
+    
+    <h2>3. Model Development</h2>
+    <h3>3.1 ARIMA Model</h3>
+    <p>Implemented using the <code>statsmodels</code> library. Steps:</p>
+    <ul>
+        <li>Checked stationarity and performed differencing</li>
+        <li>Used ACF and PACF plots to determine AR and MA terms</li>
+        <li>Trained the ARIMA model and optimized parameters</li>
+    </ul>
 
-# Introduction
-Predicting stock market performance is a challenging task due to the volatile nature of share prices influenced by various factors, including both rational and irrational behavior. This project demonstrates how machine learning and deep learning techniques can be applied to historical stock price data to forecast future prices.
+    <h3>3.2 Linear Regression</h3>
+    <p>Implemented using <code>scikit-learn</code>. Steps:</p>
+    <ul>
+        <li>Defined independent and dependent variables</li>
+        <li>Trained the model using least squares regression</li>
+        <li>Evaluated performance using error metrics</li>
+    </ul>
 
-# Models Implemented
-Moving Average <br>
-Linear Regression <br>
-k-Nearest Neighbours <br>
-Auto ARIMA <br>
-Prophet <br>
-Long Short Term Memory (LSTM) <br>
+    <h3>3.3 Polynomial Regression (Degree 3)</h3>
+    <p>Implemented using <code>PolynomialFeatures</code> from <code>scikit-learn</code>. Steps:</p>
+    <ul>
+        <li>Generated polynomial features</li>
+        <li>Trained a regression model on transformed data</li>
+        <li>Evaluated performance</li>
+    </ul>
+    
+    <h3>3.4 LSTM Model</h3>
+    <p>Implemented using <code>TensorFlow/Keras</code>. Steps:</p>
+    <ul>
+        <li>Transformed time series data into sequences</li>
+        <li>Built an LSTM model with input, hidden, and output layers</li>
+        <li>Trained using Adam optimizer and evaluated results</li>
+    </ul>
+    
+    <h2>4. Performance Comparison</h2>
+    <p>The models were evaluated using the following metrics:</p>
+    <ul>
+        <li>Mean Absolute Error (MAE)</li>
+        <li>Mean Squared Error (MSE)</li>
+        <li>Root Mean Squared Error (RMSE)</li>
+        <li>R² Score</li>
+    </ul>
+    <pre>
+ARIMA Performance:
+MAE: 1.1887, MSE: 3.7155, RMSE: 1.9276, R² Score: 0.9991
 
-# Dataset
-The dataset includes the following columns: <br>
-Date,Open,High,Low <br>
-Last,Close,Total Trade Quantity,Turnover <br> 
-The closing price is used as the target variable for predictions. <br>
+Linear Regression Performance:
+MAE: 17.9300, MSE: 484.0622, RMSE: 22.0014, R² Score: 0.8877
 
-# Techniques Used
-Moving Average
-The moving average technique predicts the closing price for each day based on the average of a set of previously observed values. This section demonstrates how to implement moving averages in Python.
+Polynomial Regression (Degree 3) Performance:
+MAE: 10.8805, MSE: 197.9070, RMSE: 14.0679, R² Score: 0.9541
 
-<h3>Linear Regression</h3>
-Linear regression analyzes the relationship between date features and closing prices. It involves feature engineering to extract relevant date components and uses them to build the model.
+LSTM Performance:
+MAE: 4.6599, MSE: 37.1658, RMSE: 6.0964, R² Score: 0.9501
+    </pre>
+    
+    <h2>5. Conclusion</h2>
+    <p>From the comparison, the best-performing model is:</p>
+    <ul>
+        <li><strong>ARIMA</strong> - Best for short-term forecasting with highest R² score.</li>
+        <li><strong>Polynomial Regression (Degree 3)</strong> - Outperforms linear regression and closely follows data trends.</li>
+        <li><strong>LSTM</strong> - Suitable for long-term predictions and time series patterns.</li>
+    </ul>
+    
+    <h2>6. Future Improvements</h2>
+    <ul>
+        <li>Optimize ARIMA parameters using Grid Search.</li>
+        <li>Experiment with higher-degree Polynomial Regression.</li>
+        <li>Enhance LSTM by adding attention mechanisms and hyperparameter tuning.</li>
+        <li>Try hybrid models (e.g., ARIMA + LSTM) for better accuracy.</li>
+    </ul>
 
-<h3>k-Nearest Neighbours</h3>
-kNN predicts the closing prices by finding the average of the k closest historical points. This section provides a walkthrough of the implementation and evaluation of the kNN model.
-
-<h3>Auto ARIMA</h3>
-ARIMA is a powerful statistical method for time series forecasting. This section utilizes auto ARIMA to automatically select the best parameters for the ARIMA model to forecast stock prices.
-
-<h3>Prophet</h3>
-Prophet is a time series forecasting tool developed by Facebook, which simplifies the forecasting process without extensive data preprocessing. This section outlines how to implement the Prophet model on stock data.
-
-<h3>Long Short Term Memory (LSTM)</h3>
-LSTMs are advanced recurrent neural networks suitable for sequence prediction tasks. This section describes how to implement LSTM to predict stock prices and evaluates its performance.
-
-# Conclusion
-The project illustrates various techniques for predicting stock prices using machine learning and deep learning approaches. Despite achieving varying levels of accuracy, it emphasizes that stock price movements are influenced by unpredictable external factors, making forecasting inherently challenging.
+    <h2>7. Installation and Usage</h2>
+    <p>To run the models, install the required libraries:</p>
+    <pre>
+    pip install numpy pandas scikit-learn statsmodels tensorflow keras yfinance
+    </pre>
+    <p>Execute the corresponding scripts for each model.</p>
+    
+    <h2>8. References</h2>
+    <ul>
+        <li>Yahoo Finance API: <a href="https://pypi.org/project/yfinance/">https://pypi.org/project/yfinance/</a></li>
+        <li>Scikit-learn Documentation: <a href="https://scikit-learn.org/">https://scikit-learn.org/</a></li>
+        <li>TensorFlow Documentation: <a href="https://www.tensorflow.org/">https://www.tensorflow.org/</a></li>
+    </ul>
+</body>
+</html>
